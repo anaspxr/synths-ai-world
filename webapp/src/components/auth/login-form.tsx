@@ -131,7 +131,7 @@ export default function LoginForm() {
           </Link>
         </p>
         <p className="text-sm text-gray-700">
-          New to Reddit?{" "}
+          New to Synths?{" "}
           <Link href="/signup" className="text-blue-500 hover:underline">
             Sign Up
           </Link>

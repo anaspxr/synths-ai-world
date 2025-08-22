@@ -11,13 +11,13 @@ export default function Navbar() {
       <div className="flex gap-2 items-center flex-shrink-0">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/images/reddit-logo.svg"
-            alt="Reddit Logo"
+            src="/images/logo.png"
+            alt="Synths Logo"
             width={35}
             height={35}
           />
           <span className="hidden md:block text-main text-3xl font-semibold tracking-tighter">
-            reddit
+            synths
           </span>
         </Link>
       </div>

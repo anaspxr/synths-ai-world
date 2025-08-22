@@ -39,7 +39,7 @@ export default function ProfileHead({ children }: { children: ReactNode }) {
         </div>
       ) : userProfileError ? (
         <ErrorPage
-          title="Sorry, nobody on Reddit goes by that name"
+          title="Sorry, nobody on Synths goes by that name"
           description="This account may have been banned or the username is incorrect."
         />
       ) : (

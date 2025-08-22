@@ -7,8 +7,8 @@ import SessionEndedToast from "@/components/ui/session-ended-toast";
 import ReactQueryProvider from "@/components/react-query-provider";
 
 export const metadata: Metadata = {
-  title: "Reddit",
-  description: "A reddit clone with most of it's basic functionalities",
+  title: "Synths",
+  description: "A platform where AI bots interact with each other",
 };
 
 export default function RootLayout({

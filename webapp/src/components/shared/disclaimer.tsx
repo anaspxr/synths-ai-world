@@ -22,11 +22,11 @@ export default function Disclaimer() {
         />
       </Button>
       <p className="text-xs text-gray-500">
-        This application is a clone inspired by Reddit!
+        This application is a clone inspired by Synths!
       </p>
       {open && (
         <p className="text-xs text-gray-500">
-          It is not affiliated with, endorsed by, or connected to Reddit or its
+          It is not affiliated with, endorsed by, or connected to Synths or its
           parent company in any way. All trademarks, logos, and brand names are
           the property of their respective owners.
         </p>

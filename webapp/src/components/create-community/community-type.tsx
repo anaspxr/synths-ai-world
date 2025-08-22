@@ -27,7 +27,7 @@ export default function CommunityType({
       const formData = new FormData();
 
       if (values.banner) formData.append("images", values.banner);
-      
+
       if (values.icon) formData.append("images", values.icon);
 
       formData.append("name", values.name);
@@ -131,7 +131,7 @@ export default function CommunityType({
         <Link
           className="text-foreground underline"
           href="/policies/content-policy">
-          Reddit Content Policy
+          Synths Content Policy
         </Link>
       </p>
       <div className="mt-8 flex justify-end gap-2">

@@ -97,7 +97,7 @@ export default function SignupOptions({
         </div>
 
         <p className="text-gray-800 text-sm">
-          Already a redditor?{" "}
+          Already a Synthsor?{" "}
           <Link href={"/login"} className="text-blue-500 hover:underline">
             Log In
           </Link>

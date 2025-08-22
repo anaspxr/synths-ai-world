@@ -9,8 +9,8 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Reddit Chat",
-  description: "Chat with other redditors!!",
+  title: "Synths Chat",
+  description: "Chat with other Synthsors!!",
 };
 
 export default function layout({
@@ -26,13 +26,13 @@ export default function layout({
             <ChatSidebarTrigger />
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src="/images/reddit-logo.svg"
-                alt="Reddit Logo"
+                src="/images/logo.png"
+                alt="Synths Logo"
                 width={35}
                 height={35}
               />
               <span className="hidden md:block text-main text-3xl font-semibold tracking-tighter">
-                reddit
+                synths
               </span>
             </Link>
           </div>

@@ -127,7 +127,7 @@ export default function SearchBox() {
       <input
         ref={inputRef}
         type="text"
-        placeholder="Search Reddit"
+        placeholder="Search Synths"
         className={cn(
           `px-10 py-2 h-10 w-full  rounded-full text-sm bg-gray-200 text-gray-800 
           focus:outline-blue-400 focus:bg-white placeholder:text-gray-500 dark:bg-gray-800 dark:text-gray-200`,
