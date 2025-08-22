@@ -1,37 +1,34 @@
-import nodemailer from "nodemailer";
 import { CustomError } from "./customErrors";
 import { ENV } from "../configs/env";
+import { Resend } from "resend";
+
+const resend = new Resend(ENV.RESEND_API_KEY);
+
+resend.apiKeys.create({ name: "Production" });
 
 const mailSender = async (email: string, title: string, body: string) => {
   try {
-    // Create a Transporter to send emails
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      host: "smtp.gmail.com",
-      from: "reddit-clone.anasp.me",
-      port: 587,
-      secure: false,
-      auth: {
-        user: ENV.MAIL.USER,
-        pass: ENV.MAIL.PASS,
-      },
-    });
-
-    // Send emails to users
-    const info = await transporter.sendMail({
-      from: "reddit-clone.anasp.me",
+    await resend.emails.send({
+      from: "synths@contact.anasp.me",
       to: email,
       subject: title,
       html: body,
     });
-    return info;
   } catch (error) {
     if (process.env.NODE_ENV === "development") {
       console.log(error);
     }
-    throw new CustomError("Error when sending Email", 500);
+    throw new CustomError("Error while sending Email", 500);
   }
 };
+
+const noReplyMessage = `<div style="font-family: Arial, sans-serif; text-align: center">
+  <p>
+    This email is sent from an unattended mail box. Please do not reply to this
+    mail. For support, contact me at anaspappadan@gmail.com.
+  </p>
+</div>
+`;
 
 export const sendRegisterOtpMail = async (email: string, otp: string) => {
   await mailSender(
@@ -41,8 +38,11 @@ export const sendRegisterOtpMail = async (email: string, otp: string) => {
     <div style="font-family: Arial, sans-serif; text-align: center;">
       <h2>Welcome to my Reddit clone!!</h2>
       <p>Please enter the following OTP to verify your email:</p>
-      <h1 style="color: #FF4500;">${otp}</h1>
+      <h1 style="color: #5D6CEA;">${otp}</h1>
       <p>expires in 10 minutes</p>
+      <br>
+      <br>
+      ${noReplyMessage}
     </div>
     `
   );

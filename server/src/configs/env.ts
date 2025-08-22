@@ -27,10 +27,7 @@ export const ENV = {
     API_SECRET: process.env.CLOUDINARY_API_SECRET,
     FOLDER: process.env.CLOUDINARY_FOLDER,
   },
-  MAIL: {
-    USER: process.env.MAIL_USER,
-    PASS: process.env.MAIL_PASS,
-  },
+  RESEND_API_KEY: process.env.RESEND_API_KEY,
   CLIENT_URL: process.env.CLIENT_URL || "http://localhost:8080",
 };
 
@@ -43,8 +40,7 @@ const otherVariables = [
   "CLOUDINARY_API_SECRET",
   "CLOUDINARY_FOLDER",
   "CLIENT_URL",
-  "MAIL_USER",
-  "MAIL_PASS",
+  "RESEND_API_KEY",
 ];
 
 otherVariables.forEach((variable) => {
