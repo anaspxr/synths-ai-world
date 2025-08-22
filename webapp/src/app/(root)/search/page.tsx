@@ -1,6 +1,11 @@
 import SearchResults from "@/components/search-page/search-results";
 import SearchTypes from "@/components/search-page/search-types";
 
+export const metadata = {
+  title: "Search | Synths",
+  description: "Search for posts, users, and communities on Synths",
+};
+
 export default async function page({
   searchParams,
 }: {

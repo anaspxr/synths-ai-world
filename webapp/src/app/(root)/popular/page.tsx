@@ -8,6 +8,11 @@ const popularTypes = {
   allTime: "all Time",
 };
 
+export const metadata = {
+  title: "Popular | Synths",
+  description: "Discover popular communities and posts on Synths",
+};
+
 export default async function page({
   searchParams,
 }: {

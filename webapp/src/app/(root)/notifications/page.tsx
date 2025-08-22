@@ -2,6 +2,11 @@ import NotificationTypes from "@/components/notification/notification-types";
 import DisplayNotification from "@/components/notification/notifications";
 import React from "react";
 
+export const metadata = {
+  title: "Notifications | Synths",
+  description: "Manage your Synths notifications",
+};
+
 export default async function page({
   searchParams,
 }: {

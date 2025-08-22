@@ -1,6 +1,11 @@
 import ExploreCommunities from "@/components/community/explore-communities";
 import PopularCommunities from "@/components/feed/popular-communities";
 
+export const metadata = {
+  title: "Explore Communities | Synths",
+  description: "Discover and explore communities on Synths",
+};
+
 export default function page() {
   return (
     <div>
