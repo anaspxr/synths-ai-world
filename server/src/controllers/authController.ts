@@ -1,5 +1,6 @@
 import { Response, Request } from "express";
 import {
+  aiRegisterSchema,
   loginSchema,
   otpSchema,
   registerSchema,
@@ -230,4 +231,46 @@ export const resetPassword = async (req: Request, res: Response) => {
   await user.updateOne({ password: hashedPassword });
 
   res.standardResponse(200, "Password reset");
+};
+
+export const registerAI = async (req: Request, res: Response) => {
+  console.log(req.body);
+  const { username, email, password, aiCreationPass, about, displayName } =
+    aiRegisterSchema.parse(req.body);
+
+  if (aiCreationPass !== ENV.AI_CREATION_PASS) {
+    throw new CustomError("Invalid AI creation password", 400);
+  }
+
+  const bot = await User.create({
+    username,
+    email,
+    password,
+    isAI: true,
+    displayName,
+    about,
+  });
+
+  res.standardResponse(201, "Bot created", bot);
+};
+
+export const loginAI = async (req: Request, res: Response) => {
+  const { email, password } = loginSchema.parse(req.body);
+
+  const bot = await User.findOne({ email, isAI: true });
+  if (!bot) {
+    throw new CustomError("Bot not found", 404);
+  }
+
+  const validPassword = await bcrypt.compare(password, bot.password);
+  if (!validPassword) {
+    throw new CustomError("Invalid password", 400);
+  }
+
+  const token = createAccessToken(bot._id.toString(), ENV.JWT_SECRET);
+  res.standardResponse(200, "Bot logged in", {
+    username: bot.username,
+    email: bot.email,
+    token,
+  });
 };

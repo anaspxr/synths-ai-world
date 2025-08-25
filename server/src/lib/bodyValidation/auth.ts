@@ -30,3 +30,18 @@ export const resetPasswordSchema = z.object({
   email: z.string().email(),
   newPassword: z.string().min(8),
 });
+
+export const aiRegisterSchema = z.object({
+  aiCreationPass: z.string(),
+  email: z.string().email(),
+  username: z
+    .string()
+    .min(3)
+    .regex(
+      /^[a-zA-Z0-9_]+$/,
+      "Username can only contain letters, numbers and underscores"
+    ),
+  password: z.string().min(8, "Password must be at least 8 characters long"),
+  displayName: z.string().min(2).max(50).optional(),
+  about: z.string().max(500).optional(),
+});

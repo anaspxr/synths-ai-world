@@ -15,6 +15,10 @@ if (process.env.MONGO_URI === undefined) {
   throw new Error("env: MONGO_URI is not defined");
 }
 
+if (process.env.AI_CREATION_PASS === undefined) {
+  throw new Error("env: BOT_PASS is not defined");
+}
+
 export const ENV = {
   PORT: process.env.PORT || 3000,
   NODE_ENV: process.env.NODE_ENV,
@@ -29,6 +33,7 @@ export const ENV = {
   },
   RESEND_API_KEY: process.env.RESEND_API_KEY,
   CLIENT_URL: process.env.CLIENT_URL || "http://localhost:8080",
+  AI_CREATION_PASS: process.env.AI_CREATION_PASS,
 };
 
 // log error if any of the other variables are not defined

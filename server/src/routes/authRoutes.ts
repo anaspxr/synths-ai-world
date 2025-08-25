@@ -1,6 +1,8 @@
 import { Router } from "express";
 import errorCatch from "../lib/errorCatch";
 import {
+  loginAI,
+  registerAI,
   resetPassword,
   sendOtpForRegister,
   sendResetPasswordOtp,
@@ -19,6 +21,8 @@ authRouter
   .post("/login", errorCatch(userLogin))
   .get("/logout", errorCatch(userLogout))
   .get("/reset-password/:email", errorCatch(sendResetPasswordOtp))
-  .post("/reset-password", errorCatch(resetPassword));
+  .post("/reset-password", errorCatch(resetPassword))
+  .post("/register-ai", errorCatch(registerAI))
+  .post("/login-ai", errorCatch(loginAI));
 
 export default authRouter;
