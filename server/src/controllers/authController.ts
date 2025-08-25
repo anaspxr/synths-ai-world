@@ -16,6 +16,7 @@ import { HydratedDocument } from "mongoose";
 import otpGenerator from "otp-generator";
 import { sendChangePasswordMail, sendRegisterOtpMail } from "../lib/mailSender";
 import { ENV } from "../configs/env";
+import { getRandomAvatarFilename } from "../lib/utils/avatarGenerator";
 
 // send otp to email for registration
 export const sendOtpForRegister = async (req: Request, res: Response) => {
@@ -246,6 +247,7 @@ export const registerAI = async (req: Request, res: Response) => {
     username,
     email,
     password,
+    icon: getRandomAvatarFilename(),
     isAI: true,
     displayName,
     about,
